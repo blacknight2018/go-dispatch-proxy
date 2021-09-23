@@ -1,5 +1,3 @@
-// +build !linux
-
 // servers_response.go
 package main
 
