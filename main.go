@@ -19,6 +19,8 @@ type load_balancer struct {
 	current_connections int
 }
 
+var GoOutServer *string
+
 // The load balancer used in the previous connection
 var lb_index int = 0
 
@@ -215,7 +217,7 @@ func main() {
 	var lport = flag.Int("lport", 8080, "The local port to listen for SOCKS connection")
 	var detect = flag.Bool("list", false, "Shows the available addresses for dispatching (non-tunnelling mode only)")
 	var tunnel = flag.Bool("tunnel", false, "Use tunnelling mode (acts as a transparent load balancing proxy)")
-
+	GoOutServer = flag.String("goout", "", "GoOutServer")
 	flag.Parse()
 	if *detect {
 		detect_interfaces()
